@@ -85,9 +85,6 @@ npm install
 npm start
 
 📦 Folder Structure
-arduino
-Copy
-Edit
 finance-tracker/
 ├── backend/
 │   ├── manage.py
@@ -105,9 +102,6 @@ finance-tracker/
 
 ✨ Future Improvements
 User-defined recurring transactions
-
 Export data (CSV, PDF)
-
 Dark mode
-
 Multi-currency support
