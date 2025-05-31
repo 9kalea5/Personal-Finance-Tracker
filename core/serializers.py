@@ -22,11 +22,11 @@ class UserCreateSerializer(serializers.Serializer):
             raise serializers.ValidationError("This phone exists try a new one")
         return value
     
-    def create(self, vallidated_data):
-        email = vallidated_data.get('email')
-        phone = vallidated_data.get('phone')
-        first_name = vallidated_data.get('first_name')
-        last_name = vallidated_data.get('last_name')
+    def create(self, validated_data):
+        email = validated_data.get('email')
+        phone = validated_data.get('phone')
+        first_name = validated_data.get('first_name')
+        last_name = validated_data.get('last_name')
         
         user = User.objects.create(
             email=email,
