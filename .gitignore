@@ -1,0 +1,11 @@
+# Ignore Django settings
+personalFinance/settings.py
+
+# Ignore SQLite DB
+*.sqlite3
+
+# Environment variables
+.env
+
+# Log files
+*.log
