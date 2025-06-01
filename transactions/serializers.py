@@ -29,3 +29,17 @@ class TransactionSerializer(serializers.ModelSerializer):
             'note', 'created_at', 'updated_at'
         ]
         read_only_fields = ['user', 'created_at', 'updated_at']
+
+class BudgetSerializer(serializers.ModelSerializer):
+    category = CategorySerializer(read_only=True)
+    category_id = serializers.PrimaryKeyRelatedField(
+        queryset=Category.objects.all(), source='category', write_only=True
+    )
+
+    class Meta:
+        model = Budget
+        fields = [
+            'id', 'user', 'category', 'category_id',
+            'amount', 'start_date', 'end_date'
+        ]
+        read_only_fields = ['user']
