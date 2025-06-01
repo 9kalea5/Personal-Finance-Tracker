@@ -48,3 +48,13 @@ class TransactionViewSet(ModelViewSet):
     
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
+        
+class BudgetViewSet(ModelViewSet):
+    serializer_class = BudgetSerializer
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        return Budget.objects.filter(user=self.request.user).order_by('-start_date')
+
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
