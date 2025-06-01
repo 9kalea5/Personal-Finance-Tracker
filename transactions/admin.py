@@ -26,3 +26,9 @@ class BudgetAdmin(admin.ModelAdmin):
     list_display = ('id', 'user', 'category', 'amount', 'start_date', 'end_date')
     search_fields = ('user__email',)
     list_filter = ('category', 'start_date')
+    
+@admin.register(Goal)
+class GoalAdmin(admin.ModelAdmin):
+    list_display = ('id', 'user', 'title', 'amount', 'target_date')
+    search_fields = ('title', 'user__email')
+    list_filter = ('target_date',)
