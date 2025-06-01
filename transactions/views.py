@@ -28,3 +28,13 @@ class CategoryViewSet(ModelViewSet):
             )
 
         return super().destroy(request, *args, **kwargs)
+
+class WalletViewSet(ModelViewSet):
+    serializer_class = WalletSerializer
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        return Wallet.objects.filter(user=self.request.user)
+
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
