@@ -29,6 +29,6 @@ class BudgetAdmin(admin.ModelAdmin):
     
 @admin.register(Goal)
 class GoalAdmin(admin.ModelAdmin):
-    list_display = ('id', 'user', 'title', 'amount', 'target_date')
-    search_fields = ('title', 'user__email')
-    list_filter = ('target_date',)
+    list_display = ('id', 'user', 'name', 'target_amount', 'due_date', 'status')
+    search_fields = ('name', 'user__email')
+    list_filter = ('due_date', 'status')

@@ -12,7 +12,9 @@ class Category(models.Model):
 
     def __str__(self):
         return self.name
-
+    class Meta:
+        verbose_name = "Category"
+        verbose_name_plural = "Categories"
 
 class Wallet(models.Model):
     ACCOUNT_TYPES = (
@@ -28,7 +30,9 @@ class Wallet(models.Model):
 
     def __str__(self):
         return f"{self.name} - {self.user.email}"
-
+    class Meta:
+        verbose_name = "Wallet"
+        verbose_name_plural = "Wallet"
 
 class Transaction(models.Model):
     TRANSACTION_TYPES = (
@@ -47,7 +51,9 @@ class Transaction(models.Model):
 
     def __str__(self):
         return f"{self.title} - {self.transaction_type} - {self.amount}"
-
+    class Meta:
+        verbose_name = "Transaction"
+        verbose_name_plural = "Transactions"
 
 class Budget(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -58,7 +64,8 @@ class Budget(models.Model):
 
     def __str__(self):
         return f"{self.category.name} - {self.amount}"
-
+    verbose_name = "Budget"
+    verbose_name_plural = "Budget"
 
 class Goal(models.Model):
     STATUS_CHOICES = (
@@ -76,3 +83,6 @@ class Goal(models.Model):
 
     def __str__(self):
         return self.name
+    class Meta:
+        verbose_name = "Goal"
+        verbose_name_plural = "Goals"
