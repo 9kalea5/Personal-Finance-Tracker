@@ -20,3 +20,9 @@ class TransactionAdmin(admin.ModelAdmin):
     search_fields = ('title', 'user__email')
     list_filter = ('transaction_type', 'created_at', 'category')
     date_hierarchy = 'created_at'
+    
+@admin.register(Budget)
+class BudgetAdmin(admin.ModelAdmin):
+    list_display = ('id', 'user', 'category', 'amount', 'start_date', 'end_date')
+    search_fields = ('user__email',)
+    list_filter = ('category', 'start_date')
