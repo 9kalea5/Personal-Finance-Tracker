@@ -43,3 +43,9 @@ class BudgetSerializer(serializers.ModelSerializer):
             'amount', 'start_date', 'end_date'
         ]
         read_only_fields = ['user']
+
+class GoalSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Goal
+        fields = '__all__'
+        read_only_fields = ['user']
