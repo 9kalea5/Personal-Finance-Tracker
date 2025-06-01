@@ -13,3 +13,10 @@ class WalletAdmin(admin.ModelAdmin):
     list_display = ('id', 'user', 'name', 'balance', 'created_at')
     search_fields = ('name', 'user__email')
     list_filter = ('created_at',)
+
+@admin.register(Transaction)
+class TransactionAdmin(admin.ModelAdmin):
+    list_display = ('id', 'user', 'title', 'amount', 'transaction_type', 'category', 'wallet', 'created_at')
+    search_fields = ('title', 'user__email')
+    list_filter = ('transaction_type', 'created_at', 'category')
+    date_hierarchy = 'created_at'
