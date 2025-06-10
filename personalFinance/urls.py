@@ -20,8 +20,8 @@ from django.urls import path, include
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path('', include('core.urls')),  # your core app
-    path('auth/', include('djoser.urls')),          # registration, reset, etc.
-    path('auth/', include('djoser.urls.jwt')),      # JWT endpoints (login, refresh, verify)
-    path('transactions/', include('transactions.urls')),  # your transaction app
+    path('', include('core.urls')),
+    path('auth/', include('djoser.urls')),
+    path('auth/', include('djoser.urls.jwt')),
+    path('transactions/', include('transactions.urls')),
 ]
